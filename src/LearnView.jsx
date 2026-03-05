@@ -55,6 +55,36 @@ export default function LearnView() {
           </a>
         </div>
       </Card>
+
+      <div style={{ marginTop: 16, borderTop: '1px solid var(--border)', paddingTop: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 12 }}>Privacy & Your Data</div>
+        <div style={{ fontSize: 13, color: 'var(--tx-m)', lineHeight: 1.7 }}>
+          <p style={{ margin: '0 0 8px' }}>Your privacy is important. This app is designed to keep your health data entirely under your control.</p>
+          <ul style={{ margin: '0 0 8px', paddingLeft: 20 }}>
+            <li>All data is stored locally on your device using your browser's built-in storage (IndexedDB).</li>
+            <li>No data is ever sent to any server.</li>
+            <li>There are no analytics, tracking, or cookies.</li>
+            <li>No account or sign-up is required.</li>
+            <li>Exporting data (copy to clipboard) is entirely user-initiated — nothing is shared unless you choose to.</li>
+            <li>Deleting the app or clearing your browser data removes all stored data permanently.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 16, borderTop: '1px solid var(--border)', paddingTop: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>About</div>
+        <div style={{ fontSize: 13, color: 'var(--tx-m)', lineHeight: 1.7 }}>
+          <p style={{ margin: '0 0 6px' }}>Developed by <span style={{ fontWeight: 600, color: 'var(--tx)' }}>TickedOffCodess</span> with the help of <span style={{ fontWeight: 600, color: 'var(--tx)' }}>Claude</span>.</p>
+          <p style={{ margin: 0 }}>Based on the Open Medicine Foundation PEM Avoidance Toolkit.</p>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 16, borderTop: '1px solid var(--border)', paddingTop: 16, marginBottom: 8 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>Contact</div>
+        <div style={{ fontSize: 13, color: 'var(--tx-m)', lineHeight: 1.7 }}>
+          <a href="mailto:dev@tickedoffcodess.com" style={{ color: 'var(--acc)', fontWeight: 500, textDecoration: 'none' }}>dev@tickedoffcodess.com</a>
+        </div>
+      </div>
     </div>
   );
 }
