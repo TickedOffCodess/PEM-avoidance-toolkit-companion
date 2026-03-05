@@ -1,14 +1,30 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { formatDate, activityColor, symptomColor } from './utils.js';
 import { SectionLabel, ScoreInput, SymptomRow, BtnP, BtnS, s } from './components.jsx';
 
-export default function DayEditor({ day, onSave, onCancel }) {
-  const [form, setForm] = useState(JSON.parse(JSON.stringify(day)));
+function trapFocus(e, containerRef) {
+  if (e.key !== 'Tab' || !containerRef.current) return;
+  const focusable = containerRef.current.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (focusable.length === 0) return;
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+
+export default function DayEditor({ day, onSave, onCancel, onDelete }) {
+  const modalRef = useRef(null);
+  const [form, setForm] = useState(() => {
+    const clone = JSON.parse(JSON.stringify(day));
+    // Restore properties that JSON stringify removes (undefined → missing)
+    if (!clone.other_symptom) clone.other_symptom = { name: '', am: '', mid: '', pm: '' };
+    if (!clone.nausea_gi) clone.nausea_gi = { am: '', mid: '', pm: '' };
+    return clone;
+  });
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
   const setN = (k, sub, v) => setForm(f => ({ ...f, [k]: { ...f[k], [sub]: v } }));
 
   return (
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 200, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }} onClick={onCancel}>
+    <div ref={modalRef} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 200, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }} onClick={onCancel} onKeyDown={e => { if (e.key === 'Escape') onCancel(); trapFocus(e, modalRef); }}>
       <div onClick={e => e.stopPropagation()} style={{ background: 'var(--surface)', borderRadius: '22px 22px 0 0', width: '100%', maxWidth: 520, maxHeight: '92dvh', overflowY: 'auto', padding: '22px 20px 36px', WebkitOverflowScrolling: 'touch' }}>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
@@ -65,7 +81,7 @@ export default function DayEditor({ day, onSave, onCancel }) {
         <SectionLabel>Crash?</SectionLabel>
         <div style={{ fontSize: 11, color: 'var(--tx-d)', marginBottom: 8 }}>A significant set-back in daily function</div>
         <div style={{ display: 'flex', gap: 8 }}>
-          {[{ v: true, l: 'Yes \u2014 Crash' }, { v: false, l: 'No' }].map(opt => (
+          {[{ v: true, l: 'Yes — Crash' }, { v: false, l: 'No' }].map(opt => (
             <button key={String(opt.v)} onClick={() => set('crash', opt.v)} style={{
               borderRadius: 8, padding: '10px 18px', fontSize: 14, fontWeight: 600, minHeight: 44, cursor: 'pointer',
               border: '1px solid', fontFamily: 'var(--font)',
@@ -78,9 +94,21 @@ export default function DayEditor({ day, onSave, onCancel }) {
 
         <SectionLabel>Comments</SectionLabel>
         <div style={{ fontSize: 11, color: 'var(--tx-d)', marginBottom: 6 }}>Brief reminder, e.g. &quot;Shopping for 3 hours&quot;</div>
-        <textarea value={form.comments} onChange={e => set('comments', e.target.value)}
+        <textarea value={form.comments} maxLength={500} onChange={e => set('comments', e.target.value)}
           rows={3} placeholder="A few words about the day&hellip;"
+          aria-label="Comments about the day"
           style={{ ...s.input, resize: 'vertical', fontFamily: 'var(--font)' }} />
+
+        {onDelete && (
+          <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
+            <button onClick={() => {
+              if (window.confirm('Delete this day entry? This cannot be undone.')) onDelete(form.date);
+            }} aria-label="Delete this day entry" style={{
+              width: '100%', background: 'var(--red-d)', color: 'var(--red)', border: '1px solid rgba(248,113,113,0.3)',
+              borderRadius: 8, padding: '12px 20px', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--font)', minHeight: 44,
+            }}>Delete This Entry</button>
+          </div>
+        )}
       </div>
     </div>
   );

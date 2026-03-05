@@ -30,7 +30,7 @@ export default function PlanView({ plan, onUpdate }) {
         const isOpen = exp === sec.k;
         return (
           <div key={sec.k}>
-            <button onClick={() => setExp(isOpen ? null : sec.k)} style={{
+            <button onClick={() => setExp(isOpen ? null : sec.k)} aria-expanded={isOpen} aria-label={`${sec.title}, ${plan[sec.k].length} selected`} style={{
               width: '100%', background: 'var(--card)', border: '1px solid var(--border)',
               borderRadius: isOpen ? '12px 12px 0 0' : 12, padding: '16px 18px',
               textAlign: 'left', display: 'flex', justifyContent: 'space-between',
@@ -54,7 +54,7 @@ export default function PlanView({ plan, onUpdate }) {
                     {items.map(item => {
                       const sel = plan[sec.k].includes(item);
                       return (
-                        <button key={item} onClick={() => toggle(sec.k, item)} style={{
+                        <button key={item} onClick={() => toggle(sec.k, item)} role="checkbox" aria-checked={sel} aria-label={item} style={{
                           display: 'flex', gap: 12, alignItems: 'flex-start', padding: '8px 10px',
                           width: '100%', textAlign: 'left', background: sel ? 'rgba(255,255,255,0.03)' : 'transparent',
                           border: 'none', borderRadius: 6, cursor: 'pointer', marginBottom: 3, minHeight: 44,

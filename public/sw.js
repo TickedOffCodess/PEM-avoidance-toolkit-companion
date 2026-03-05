@@ -11,19 +11,22 @@ self.addEventListener("activate", function(e) {
         keys.filter(function(k) { return k !== CACHE_NAME; })
             .map(function(k) { return caches.delete(k); })
       );
+    }).then(function() {
+      return self.clients.claim();
     })
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", function(e) {
   e.respondWith(
     caches.match(e.request).then(function(cached) {
       var fetched = fetch(e.request).then(function(response) {
-        var clone = response.clone();
-        caches.open(CACHE_NAME).then(function(cache) {
-          cache.put(e.request, clone);
-        });
+        if (response.ok) {
+          var clone = response.clone();
+          caches.open(CACHE_NAME).then(function(cache) {
+            cache.put(e.request, clone);
+          });
+        }
         return response;
       }).catch(function() {
         return cached;

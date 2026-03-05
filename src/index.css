@@ -57,3 +57,23 @@ input, textarea { font-family: var(--mono); }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Print-only report (hidden on screen) */
+.print-report { display: none; }
+
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .print-report {
+    display: block !important;
+    padding: 24px;
+    font-family: serif;
+  }
+  .print-report h2 { font-size: 20px; margin-bottom: 8px; }
+  .print-report p { font-size: 12px; color: #666; margin-bottom: 16px; }
+  .print-report pre {
+    font-size: 10px; font-family: monospace;
+    white-space: pre-wrap; line-height: 1.5;
+  }
+  /* Hide everything except the print report */
+  header, main, nav, [role="dialog"], [role="alert"] { display: none !important; }
+}
