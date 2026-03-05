@@ -1,0 +1,18 @@
+{
+  "name": "PEM Avoidance Toolkit",
+  "short_name": "PEM Toolkit",
+  "description": "Track activities and symptoms to avoid post-exertional malaise. Based on the Open Medicine Foundation framework.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0F1318",
+  "theme_color": "#1A2332",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
