@@ -10,7 +10,7 @@ test.describe('PWA Manifest', () => {
   test('manifest is fetchable and valid JSON', async ({ page }) => {
     await page.goto('/');
     const href = await page.locator('link[rel="manifest"]').getAttribute('href');
-    const res = await page.request.get(href);
+    const res = await page.request.get(new URL(href, page.url()).href);
     expect(res.ok()).toBe(true);
     const json = await res.json();
     expect(json).toBeTruthy();
@@ -19,7 +19,7 @@ test.describe('PWA Manifest', () => {
   test('manifest has required PWA fields', async ({ page }) => {
     await page.goto('/');
     const href = await page.locator('link[rel="manifest"]').getAttribute('href');
-    const res = await page.request.get(href);
+    const res = await page.request.get(new URL(href, page.url()).href);
     const manifest = await res.json();
 
     expect(manifest.name).toBeTruthy();
@@ -32,7 +32,7 @@ test.describe('PWA Manifest', () => {
   test('manifest display is standalone', async ({ page }) => {
     await page.goto('/');
     const href = await page.locator('link[rel="manifest"]').getAttribute('href');
-    const res = await page.request.get(href);
+    const res = await page.request.get(new URL(href, page.url()).href);
     const manifest = await res.json();
 
     expect(manifest.display).toBe('standalone');
@@ -41,7 +41,7 @@ test.describe('PWA Manifest', () => {
   test('manifest has icons with required properties', async ({ page }) => {
     await page.goto('/');
     const href = await page.locator('link[rel="manifest"]').getAttribute('href');
-    const res = await page.request.get(href);
+    const res = await page.request.get(new URL(href, page.url()).href);
     const manifest = await res.json();
 
     expect(manifest.icons.length).toBeGreaterThan(0);
