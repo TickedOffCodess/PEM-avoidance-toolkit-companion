@@ -10,7 +10,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
   },
   webServer: {
-    command: 'npm run build && npm run preview -- --port 4173',
+    command: 'npx vite build --base / && npx vite preview --base / --port 4173',
     port: 4173,
     reuseExistingServer: !process.env.CI,
     timeout: 60000,

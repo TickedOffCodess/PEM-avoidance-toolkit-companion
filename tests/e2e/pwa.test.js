@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './global-setup.js';
 
 test.describe('PWA Manifest', () => {
   test('manifest link exists in HTML', async ({ page }) => {
