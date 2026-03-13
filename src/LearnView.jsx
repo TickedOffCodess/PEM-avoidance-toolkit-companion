@@ -74,7 +74,7 @@ export default function LearnView() {
       <div style={{ marginTop: 16, borderTop: '1px solid var(--border)', paddingTop: 16 }}>
         <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>About</div>
         <div style={{ fontSize: 13, color: 'var(--tx-m)', lineHeight: 1.7 }}>
-          <p style={{ margin: '0 0 6px' }}>Developed by <span style={{ fontWeight: 600, color: 'var(--tx)' }}>TickedOffCodess</span> with the help of <span style={{ fontWeight: 600, color: 'var(--tx)' }}>Claude</span>.</p>
+          <p style={{ margin: '0 0 6px' }}>Developed by <a href="https://tickedoffcodess.com" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--acc)', textDecoration: 'none' }}>TickedOffCodess</a> with the help of <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--acc)', textDecoration: 'none' }}>Claude</a>.</p>
           <p style={{ margin: 0 }}>Based on the Open Medicine Foundation PEM Avoidance Toolkit.</p>
         </div>
       </div>
