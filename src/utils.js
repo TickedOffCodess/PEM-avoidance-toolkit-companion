@@ -212,7 +212,7 @@ export function getLast30Dates() {
 export function generateExportText(days, plan) {
   const lines = [
     'PEM AVOIDANCE TOOLKIT - TRACKING DATA',
-    'Based on Open Medicine Foundation framework',
+    'Based on Stanford PEM Avoidance Toolkit, hosted by Open Medicine Foundation',
     'Generated: ' + new Date().toLocaleDateString(),
     '', '',
   ];

@@ -1,7 +1,7 @@
 {
   "name": "PEM Avoidance Toolkit",
   "short_name": "PEM Toolkit",
-  "description": "Track activities and symptoms to avoid post-exertional malaise. Based on the Open Medicine Foundation framework.",
+  "description": "Track activities and symptoms to avoid post-exertional malaise. Based on the Stanford PEM Avoidance Toolkit, hosted by Open Medicine Foundation.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0F1318",

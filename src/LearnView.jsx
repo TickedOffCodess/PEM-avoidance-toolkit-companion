@@ -17,7 +17,7 @@ export default function LearnView() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 4 }}>Learn</div>
       <div style={{ fontSize: 12, color: 'var(--tx-d)', lineHeight: 1.6, marginBottom: 8 }}>
-        Reference material from the Open Medicine Foundation&rsquo;s PEM Avoidance Toolkit, developed by Jeff Hewitt, Sarah Hewitt, Dana Beltramo Hewitt, Dr. Bonilla, and Dr. Montoya with input from ME/CFS patients.
+        Reference material from the PEM Avoidance Toolkit, developed at Stanford by Jeff Hewitt, Sarah Hewitt, Dana Beltramo Hewitt, Dr. Bonilla, and Dr. Montoya with input from ME/CFS patients. Hosted online by the Open Medicine Foundation.
       </div>
 
       {SECTIONS.map(sec => {
@@ -75,7 +75,7 @@ export default function LearnView() {
         <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>About</div>
         <div style={{ fontSize: 13, color: 'var(--tx-m)', lineHeight: 1.7 }}>
           <p style={{ margin: '0 0 6px' }}>Developed by <a href="https://tickedoffcodess.com" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--acc)', textDecoration: 'none' }}>TickedOffCodess</a> with the help of <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--acc)', textDecoration: 'none' }}>Claude</a>.</p>
-          <p style={{ margin: 0 }}>Based on the Open Medicine Foundation PEM Avoidance Toolkit.</p>
+          <p style={{ margin: 0 }}>Based on the PEM Avoidance Toolkit, developed at Stanford and hosted by the Open Medicine Foundation.</p>
         </div>
       </div>
 

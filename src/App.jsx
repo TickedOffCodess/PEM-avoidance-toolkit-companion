@@ -27,7 +27,7 @@ const TOUR_STEPS = [
   { tab: 'track', title: 'Track Your Day', desc: 'Log physical, mental, and emotional activity levels plus symptoms each day.' },
   { tab: 'patterns', title: 'See Your Patterns', desc: 'Discover what triggers crashes by reviewing trends and correlations.' },
   { tab: 'plan', title: 'Build Your Plan', desc: 'Identify causes, barriers, and strategies to prevent PEM crashes.' },
-  { tab: 'learn', title: 'Learn About PEM', desc: 'Reference material from the Open Medicine Foundation framework.' },
+  { tab: 'learn', title: 'Learn About PEM', desc: 'Reference material from the Stanford PEM Avoidance Toolkit, hosted by the Open Medicine Foundation.' },
 ];
 
 function LoadingFallback() {
@@ -199,7 +199,7 @@ export default function App() {
         <div style={{ fontSize: 64, marginBottom: 24 }}>{'\u26A1'}</div>
         <div style={{ fontSize: 24, fontWeight: 700, marginBottom: 12, lineHeight: 1.3 }}>PEM Avoidance Toolkit</div>
         <div style={{ fontSize: 15, color: 'var(--tx-m)', lineHeight: 1.7, marginBottom: 32, maxWidth: 380 }}>
-          Track your activities and symptoms to identify crash triggers and build your personalized avoidance plan. Based on the Open Medicine Foundation framework.
+          Track your activities and symptoms to identify crash triggers and build your personalized avoidance plan. Based on the Stanford PEM Avoidance Toolkit, hosted by the Open Medicine Foundation.
         </div>
         <div style={{ textAlign: 'left', marginBottom: 32, maxWidth: 380, width: '100%' }}>
           {[
@@ -240,7 +240,7 @@ export default function App() {
           <div style={{ width: 38, height: 38, borderRadius: 10, background: 'linear-gradient(135deg, var(--teal), var(--acc))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, color: '#fff', flexShrink: 0 }}>{'\u26A1'}</div>
           <div style={{ flex: 1 }}>
             <h1 style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2 }}>PEM Avoidance Toolkit</h1>
-            <div style={{ fontSize: 11, color: 'var(--tx-d)', marginTop: 2 }}>Open Medicine Foundation framework</div>
+            <div style={{ fontSize: 11, color: 'var(--tx-d)', marginTop: 2 }}>Stanford · Hosted by Open Medicine Foundation</div>
           </div>
           <div style={{ display: 'flex', gap: 6 }}>
             <button onClick={toggleTheme} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 8, padding: '6px 10px', fontSize: 12, color: 'var(--tx-m)', cursor: 'pointer', fontFamily: 'var(--font)', minHeight: 32 }}>

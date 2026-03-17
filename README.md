@@ -1,6 +1,6 @@
 # PEM Avoidance Toolkit
 
-A progressive web app for tracking post-exertional malaise, based on the [Open Medicine Foundation](https://omf.ngo/pem-avoidance-toolkit) framework.
+A progressive web app for tracking post-exertional malaise, based on the Stanford PEM Avoidance Toolkit, hosted by the [Open Medicine Foundation](https://omf.ngo/pem-avoidance-toolkit).
 
 **All data stays on the user's device.** Nothing is ever sent to a server.
 
@@ -110,6 +110,6 @@ npm run build     # production build
 
 ## Based on
 
-The Open Medicine Foundation PEM Avoidance Toolkit, developed by Jeff Hewitt, Sarah Hewitt, Dana Beltramo Hewitt, Dr. Bonilla, and Dr. Montoya with input from ME/CFS patients.
+The PEM Avoidance Toolkit, developed at Stanford by Jeff Hewitt, Sarah Hewitt, Dana Beltramo Hewitt, Dr. Bonilla, and Dr. Montoya with input from ME/CFS patients. Hosted online by the Open Medicine Foundation.
 
 Full toolkit: [omf.ngo/pem-avoidance-toolkit](https://omf.ngo/pem-avoidance-toolkit)
